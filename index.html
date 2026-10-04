@@ -1,0 +1,211 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b0f17"><title>BetterDay</title>
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="BD">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0f17;--card:#121823;--bd:#1f2937;--tx:#f1f5f9;--mut:#8b97a8;--or:#ff9f0a;--gr:#22c55e;--rd:#ef4444;--tl:#14b8a6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#0b0f17}}
+body.light{--bg:#f6f4ef;--card:#fff;--bd:#e5e1d8;--tx:#1b1f27;--mut:#6b7280}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg)}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--tx);min-height:100vh;padding-bottom:90px;background-attachment:fixed;background-size:cover}
+body.w-aurora{background-image:linear-gradient(160deg,#06281f,#0b0f17 45%,#1a1040)}
+body.w-mountains{background-image:linear-gradient(180deg,#2a1747,#c2410c 55%,#0b0f17)}
+body.w-minimal{background-image:radial-gradient(#ffffff14 1px,transparent 1px);background-size:14px 14px}
+body.w-forest{background-image:linear-gradient(180deg,#0b0f17,#0d3b2a)}
+body.glass .card,body.glass .nav,body.glass .md{background:#ffffff12;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-color:#ffffff30;box-shadow:inset 0 1px 0 #ffffff40}
+.wrap{max-width:520px;margin:0 auto;padding:14px 14px 0}
+.hd{display:flex;align-items:center;gap:8px}
+.logo{width:36px;height:36px;border-radius:10px;border:1.5px solid var(--or);display:grid;place-items:center;font-weight:800;color:var(--or);font-size:13px;background:#ff9f0a18}
+.brand{font-style:italic;font-weight:800;font-size:22px;color:var(--or)}
+.tag{font-size:9px;font-weight:800;border:1px solid #ff9f0a80;color:var(--or);border-radius:5px;padding:1px 5px}
+.sp{flex:1}
+.pill{background:var(--or);color:#1a1200;font-weight:800;font-size:12px;border:0;border-radius:9px;padding:8px 12px;cursor:pointer}
+.ico{width:34px;height:34px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--or);font-size:16px;cursor:pointer}
+.hi{font-size:12px;color:var(--mut);margin:12px 0 2px}
+h1{font-style:italic;font-weight:800;font-size:25px;line-height:1.1;color:var(--or);margin-bottom:14px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:8px}
+.mut{color:var(--mut);font-size:12px}
+.sm{font-size:12px}.b{font-weight:700}
+.btn{background:var(--or);color:#1a1200;font-weight:800;border:0;border-radius:10px;padding:10px 16px;font-size:13px;cursor:pointer;font-family:inherit}
+.btn.g{background:transparent;color:var(--tx);font-weight:600}
+.btn:disabled{opacity:.4}
+.link{color:var(--or);font-weight:700;font-size:12px;background:0;border:0;cursor:pointer;font-family:inherit}
+.chip{font-size:10px;font-weight:700;background:#ff9f0a22;color:var(--or);border-radius:6px;padding:2px 6px}
+.empty{text-align:center;padding:24px 10px}.empty p{margin:6px 0}
+.sec{display:flex;align-items:center;gap:8px;margin:16px 0 10px}
+.nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);display:flex;justify-content:space-around;padding:8px 6px calc(8px + env(safe-area-inset-bottom,0px));z-index:5}
+.nav button{background:0;border:0;color:var(--mut);font-size:10px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 10px;border-radius:12px;font-family:inherit;cursor:pointer}
+.nav button i{font-style:normal;font-size:18px}
+.nav button.on{color:var(--or);background:#ff9f0a18}
+.goal{position:relative;overflow:hidden;cursor:pointer;border-top:3px solid var(--or)}
+.big{font-size:30px;font-weight:800;color:var(--or)}
+input[type=text],input[type=date],textarea{width:100%;background:var(--bg);border:1px solid var(--bd);color:var(--tx);border-radius:10px;padding:10px;font-size:13px;font-family:inherit}
+input:focus,textarea:focus{outline:2px solid var(--or);border-color:var(--or)}
+textarea{min-height:90px;resize:none}
+.ov{position:fixed;inset:0;background:#000a;z-index:20;display:flex;align-items:center;justify-content:center;padding:14px}
+.ov.sheet{align-items:flex-end}
+.md{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:16px;width:100%;max-width:420px;max-height:88vh;overflow:auto}
+.md h3{font-size:15px;margin-bottom:12px}
+.lbl{font-size:11px;color:var(--mut);margin:12px 0 6px}
+.emo{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.emo button{height:40px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);font-size:18px;cursor:pointer}
+.emo button.on{border-color:var(--or);background:#ff9f0a22}
+.seg{display:flex;gap:6px}.seg button{flex:1;padding:9px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--mut);font-weight:700;font-size:12px;cursor:pointer;font-family:inherit}
+.seg button.on{background:var(--or);color:#1a1200;border-color:var(--or)}
+.pre{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.pre button{padding:8px 0;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font-size:11px;cursor:pointer}
+input[type=range]{width:100%;accent-color:var(--or)}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl th{font-weight:600;color:var(--mut);padding:4px 2px}.tbl th.t{color:var(--or)}
+.tbl td{padding:5px 2px;text-align:center}.tbl td:first-child{text-align:left;font-weight:600;padding-right:6px}
+.cb{width:24px;height:24px;border-radius:7px;border:1.5px solid var(--bd);background:transparent;color:var(--gr);font-size:13px;cursor:pointer}
+.cb.m{border-color:#ef444466;background:#ef444418;color:var(--rd)}
+.cb.d{border-color:#22c55e88;background:#22c55e22}
+.cb:disabled{cursor:default}
+.rings{display:grid;grid-template-columns:1fr 1fr;gap:10px}.rings .card{text-align:center;margin:0}
+.up{display:inline-block;font-size:10px;font-weight:700;color:var(--gr);background:#22c55e1c;border-radius:6px;padding:3px 7px;margin-top:6px}
+.bars{display:flex;align-items:flex-end;justify-content:space-between;height:110px;margin-top:10px}
+.bar{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:9px;color:var(--mut);height:100%;justify-content:flex-end}
+.bar div{width:20px;border-radius:5px 5px 2px 2px;background:var(--or);min-height:4px}
+.trk{height:6px;border-radius:4px;background:var(--bd);overflow:hidden;margin-top:8px}.trk i{display:block;height:100%;background:var(--or)}
+.tog{width:46px;height:26px;border-radius:14px;background:var(--bd);border:0;position:relative;cursor:pointer;flex:none}
+.tog:after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+.tog.on{background:var(--or)}.tog.on:after{left:23px}
+.wp{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;font-size:9px;text-align:center;color:var(--mut)}
+.wp div{cursor:pointer}.wp span{display:block;height:46px;border-radius:9px;border:2px solid transparent;margin-bottom:3px;background:var(--bg)}
+.wp .on span{border-color:var(--or)}
+.cf{position:fixed;top:-14px;width:8px;height:12px;z-index:50;animation:fall 2.4s cubic-bezier(.3,.1,.6,1) forwards;pointer-events:none;line-height:1}
+.cf.st{width:auto;height:auto;font-size:14px;background:none!important}
+@keyframes fall{to{transform:translate(var(--dx,0),105vh) rotate(720deg);opacity:.15}}
+.ov{animation:fadeIn .2s ease}
+.md{animation:pop .3s cubic-bezier(.2,1.25,.4,1)}
+.ov.sheet .md{animation:slideUp .32s cubic-bezier(.2,.9,.3,1);border-radius:20px 20px 0 0;max-width:520px}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:scale(.88) translateY(14px)}}
+@keyframes slideUp{from{transform:translateY(100%)}}
+.enter{animation:enter .35s ease}
+@keyframes enter{from{opacity:0;transform:translateY(12px)}}
+.rg{animation:ring .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ring{from{stroke-dasharray:0 var(--l)}}
+.bar div{transform-origin:bottom;animation:grow .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes grow{from{transform:scaleY(0)}}
+.trk i{animation:slideW .9s cubic-bezier(.2,.8,.2,1);transition:width 1s linear}
+@keyframes slideW{from{width:0}}
+.cb{transition:transform .12s,background .2s,border-color .2s}
+.cb.pop{animation:cbpop .4s cubic-bezier(.3,1.7,.5,1)}
+@keyframes cbpop{from{transform:scale(.3)}}
+.btn,.pill,.nav button,.ico,.goal{transition:transform .12s}
+.btn:active,.pill:active,.ico:active,.cb:not(:disabled):active,.nav button:active{transform:scale(.92)}
+.goal:active{transform:scale(.98)}
+.goal{user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.nav button.on i{animation:bounce .45s ease}
+@keyframes bounce{40%{transform:translateY(-6px) scale(1.18)}}
+.toast{position:fixed;left:50%;bottom:96px;background:var(--or);color:#1a1200;font-weight:800;font-size:12px;padding:10px 16px;border-radius:12px;z-index:60;animation:toast 2.2s ease both;pointer-events:none}
+@keyframes toast{0%{opacity:0;transform:translate(-50%,12px)}12%,85%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,0)}}
+@media(prefers-reduced-motion:reduce){.cf{display:none}.tog:after{transition:none}.enter,.rg,.bar div,.trk i,.cb.pop,.md,.ov,.nav button.on i{animation:none}}
+.note{border-left:3px solid var(--or)}
+</style></head><body>
+<div class="wrap" id="app"></div><div class="nav" id="nav"></div><div id="mod"></div>
+<script>
+const K='betterday_v1',$=s=>document.querySelector(s),uid=()=>Math.random().toString(36).slice(2,9),
+esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dk=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const off=n=>{const d=new Date();d.setDate(d.getDate()+n);return d};
+const days=n=>Array.from({length:n},(_,i)=>dk(off(i-n+1)));
+const fresh=()=>({goals:[],todos:[],notes:[],set:{dark:true,glass:false,wall:'none',end:dk(off(30)),cd:false}});
+let S=null;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+S=S||fresh();
+let tab='goals',open=null,flt='all',nf='Reflection',tdv={u:'h',n:4,name:''},gem='🌿',popId=null,go=false,navTab=null,hT=null,held=false;
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const fmtD=k=>{const[y,m,d]=k.split('-');return new Date(y,m-1,d).toLocaleDateString('en',{month:'short',day:'numeric'})};
+const tot=k=>{let a=0,b=0;S.goals.forEach(g=>g.tasks.forEach(t=>{a++;if(t.log[k])b++}));return[b,a]};
+const op=k=>{const[b,a]=tot(k);return a?Math.round(b/a*100):0};
+const gp=(g,k)=>g.tasks.length?Math.round(g.tasks.filter(t=>t.log[k]).length/g.tasks.length*100):0;
+const streaks=f=>{const ks=days(90);let cur=0,best=0,run=0;ks.forEach(k=>{if(f(k)==100){run++;best=Math.max(best,run)}else run=0});let i=ks.length-1;if(f(ks[i])!=100)i--;while(i>=0&&f(ks[i])==100){cur++;i--}return[cur,best]};
+const ring=(p,s=90)=>{const r=s/2-9,L=2*Math.PI*r,c=s/2;return`<svg width="${s}" height="${s}" viewBox="0 0 ${s} ${s}"><circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="var(--bd)" stroke-width="8"/><circle class="rg" style="--l:${L}" stroke-opacity="${p?1:0}" cx="${c}" cy="${c}" r="${r}" fill="none" stroke="var(--or)" stroke-width="8" stroke-linecap="round" stroke-dasharray="${L*p/100} ${L}" transform="rotate(-90 ${c} ${c})"/><text x="50%" y="53%" text-anchor="middle" dominant-baseline="middle" fill="var(--tx)" font-size="${s/5.2}" font-weight="800">${p}%</text></svg>`};
+const rem=t=>t.start+t.ms-Date.now();
+const fmtR=ms=>{if(ms<=0)return"Time's up";const s=Math.floor(ms/1e3),d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);return d?`${d}d ${h}h ${m}m`:`${h}h ${m}m ${s%60}s`};
+const cdText=()=>{const L=new Date(S.set.end+'T23:59:59')-Date.now();return L>0?fmtR(L):"Time's up"};
+const delta=(a,b)=>(a>=b?'+':'')+(a-b)+'%';
+function confetti(){const c=['#ff9f0a','#22c55e','#14b8a6','#ef4444','#fff'];for(let i=0;i<90;i++){const e=document.createElement('i'),st=i%4==0;e.className='cf'+(st?' st':'');if(st){e.textContent='★';e.style.color=c[i%5]}else{e.style.background=c[i%5];e.style.borderRadius=i%3?'2px':'50%'}e.style.left=Math.random()*100+'vw';e.style.setProperty('--dx',(Math.random()*120-60)+'px');e.style.animationDelay=Math.random()*.7+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),3600)}}
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.remove(),2300)}
+function ask(t,d,label,act,arg){M(`<h3>${t}</h3><p class="mut" style="margin:6px 0 16px;line-height:1.5">${d}</p><div class="row" style="justify-content:flex-end"><button class="btn g" onclick="A('close')">Cancel</button><button class="btn" style="background:var(--rd);color:#fff" onclick="A('${act}'${arg?",'"+arg+"'":''})">${label}</button></div>`)}
+function HD(id){held=false;clearTimeout(hT);hT=setTimeout(()=>{held=true;A('delGoal',id)},650)}
+function HU(){clearTimeout(hT)}
+function GO(id){if(held){held=false;return}A('open',id)}
+function head(){return`<div class="hd"><div class="logo">BD</div><span class="brand">BetterDay</span><span class="tag">BD</span><span class="sp"></span><button class="pill" onclick="A('install')">⤓ Install BD</button><button class="ico" onclick="A('dark')" aria-label="Toggle theme">☀</button></div><p class="hi">Good ${new Date().getHours()<12?'morning':new Date().getHours()<18?'afternoon':'evening'} ☀️</p><h1>YESTERDAY WAS MY BASELINE. TODAY I RISE</h1>`}
+function pGoals(){const T=dk(new Date());
+if(open){const g=S.goals.find(x=>x.id==open);if(!g){open=null;return pGoals()}const ks=days(7),y=dk(off(-1)),p=gp(g,T),q=gp(g,y);
+return`<div class="row" style="margin:6px 0 14px"><button class="ico" onclick="A('back')" aria-label="Back">←</button><b style="font-size:17px">${g.emoji} ${esc(g.name)}</b><span class="sp"></span><button class="ico" onclick="A('addTask')" aria-label="Add task">+</button><button class="ico" onclick="A('rmTask')" aria-label="Remove task">−</button></div>
+<div class="card"><div class="row mut" style="margin-bottom:8px"><b class="sm" style="color:var(--tx)">Task Tracker</b><span class="chip">🔒 Past days locked · Missed marked with ❌</span><span class="sp"></span><b style="color:var(--or)">${g.tasks.length} rows</b></div>
+<table class="tbl"><tr><th style="text-align:left">Task</th>${ks.map(k=>`<th class="${k==T?'t':''}">${fmtD(k).replace(' ','<br>')}</th>`).join('')}</tr>
+${g.tasks.map(t=>`<tr><td>${esc(t.name)}</td>${ks.map(k=>{const d=t.log[k],pa=k<T;return`<td><button class="cb ${d?'d':pa?'m':''} ${d&&popId==t.id?'pop':''}" ${pa?'disabled':''} onclick="A('tick','${g.id}','${t.id}')" aria-label="${esc(t.name)} ${k}">${d?'✓':pa?'✕':''}</button></td>`}).join('')}</tr>`).join('')}</table></div>
+<p class="mut b" style="margin:14px 2px 8px">Progress Analytics</p><div class="rings"><div class="card"><p class="mut">Today vs Yesterday</p>${ring(p,96)}<br><span class="up">${delta(p,q)} vs yesterday</span></div><div class="card"><p class="mut">Still Remaining</p>${ring(100-p,96)}<p class="mut" style="margin-top:6px">left to complete</p></div></div>`}
+const run=S.todos.filter(t=>!t.done&&rem(t)>0).length;
+return head()+`<div class="card row sm"><span class="mut">● Goal Countdown: <b id="cdv" style="color:var(--tx)">${S.set.cd?cdText():'Timer Stopped'}</b></span><span class="sp"></span><button class="btn" style="padding:6px 10px;font-size:11px" onclick="A('cdToggle')">${S.set.cd?'Stop Timer':'Start Timer'}</button></div>
+<div class="card row" style="background:#ff9f0a10;border-color:#ff9f0a44"><div class="logo" style="width:32px;height:32px">☰</div><div><b class="sm">Timed To-Do List</b> <span class="chip">1h – 10d</span><p class="mut">${run?run+' active timer'+(run>1?'s':'')+' running':'No tasks running · Timers stopped'}</p></div><span class="sp"></span><button class="link" onclick="A('tab','todo')">Open →</button></div>
+<div class="sec"><b>My Goals &amp; Routines</b><span class="chip">${S.goals.length} active</span><span class="sp"></span><button class="link" style="font-size:20px" onclick="A('newGoal')" aria-label="Add goal">+</button></div>
+${S.goals.length?S.goals.map(g=>{const p=gp(g,T),q=gp(g,dk(off(-1)));return`<div class="card goal" onclick="GO('${g.id}')" onpointerdown="HD('${g.id}')" onpointerup="HU()" onpointerleave="HU()" onpointercancel="HU()" oncontextmenu="return false"><div class="row"><div><b>${g.emoji} ${esc(g.name)}</b><div class="row" style="margin:4px 0"><span class="big">${p}%</span><span class="chip" style="color:var(--mut);background:var(--bd)">${p>=q?'▲':'▼'} ${Math.abs(p-q)}%</span></div><p class="mut">${g.tasks.length} tasks • tap to view • hold to delete</p></div><span class="sp"></span>${ring(p,64)}</div></div>`}).join(''):`<div class="card empty"><p class="b">No routines or goals mentioned yet.</p><p class="mut">All timers are stopped. Tap below to create your personal routine whenever you are ready.</p><button class="btn" onclick="A('newGoal')">+ Add Routine / Goal</button></div>`}`}
+function pTodo(){const L=S.todos.filter(t=>flt=='all'||(flt=='done'?t.done:!t.done));
+return head()+`<div class="card"><div class="row"><div><b>TIMED TO-DO LIST</b> <span class="chip">1h – 10d</span><p class="mut">Set tasks with live timers from 1 hour up to 10 days</p></div><span class="sp"></span><button class="btn" onclick="A('newTodo')">+ Add Task</button></div>
+<div class="row" style="margin-top:12px">${[['all','All',S.todos.length],['active','Active',S.todos.filter(t=>!t.done).length],['done','Done',S.todos.filter(t=>t.done).length]].map(([k,n,c])=>`<button class="chip" style="border:0;cursor:pointer;padding:5px 10px;${flt==k?'background:var(--or);color:#1a1200':'background:var(--bd);color:var(--mut)'}" onclick="A('flt','${k}')">${n} (${c})</button>`).join('')}</div></div>
+${L.length?L.map(t=>{const r=rem(t),pc=Math.max(0,Math.min(100,r/t.ms*100));return`<div class="card" style="${t.done?'opacity:.7':''}"><div class="row"><button class="cb ${t.done?'d':''}" style="border-radius:50%" onclick="A('doneT','${t.id}')" aria-label="Complete ${esc(t.name)}">${t.done?'✓':''}</button><b style="${t.done?'text-decoration:line-through;color:var(--mut)':''}">${esc(t.name)}</b><span class="sp"></span><button class="link" style="color:var(--mut)" onclick="A('delT','${t.id}')" aria-label="Delete">🗑</button></div><div class="row mut" style="margin-top:8px"><span class="chip" data-chip="${t.id}">${t.done?'Completed':fmtR(r)}</span><span class="sp"></span>Timer: ${t.u=='d'?t.n+'d':t.n+'h'}</div>${t.done?'':`<div class="trk"><i data-bar="${t.id}" style="width:${pc}%"></i></div>`}</div>`}).join(''):`<div class="card empty"><div style="font-size:30px">⏳</div><p class="b">All timers stopped · No to-do tasks</p><p class="mut">Create a task and choose a timer duration from 1 hour to 10 days whenever you are ready.</p><button class="btn" onclick="A('newTodo')">+ Create Timed Task</button></div>`}`}
+function pNotes(){return head()+`<div class="sec" style="margin-top:0"><b>Personal Notes</b><span class="chip">${S.notes.length}</span><span class="sp"></span><button class="btn" onclick="A('newNote')">+ New Note</button></div>${S.notes.length?S.notes.map(n=>`<div class="card note"><div class="row"><b>${esc(n.title)}</b><span class="sp"></span><span class="chip">${n.cat}</span></div><p class="sm" style="margin:8px 0;white-space:pre-wrap">${esc(n.body)}</p><div class="row mut">${fmtD(n.date)}<span class="sp"></span><button class="link" style="color:var(--mut)" onclick="A('delN','${n.id}')">Delete</button></div></div>`).join(''):`<div class="card empty"><p class="b">No notes yet</p><p class="mut">Capture a reflection, a win or a mindset shift from today.</p></div>`}`}
+function pIns(){const T=dk(new Date()),[b,a]=tot(T),p=op(T),q=op(dk(off(-1))),[cs]=streaks(op),ks=days(7);
+return head()+`<div class="card"><div class="row"><b class="sm">Today's Overall Performance</b><span class="sp"></span><b class="sm" style="color:var(--or)">${b} of ${a} tasks done</b></div><div class="row" style="margin-top:10px">${ring(p,110)}<div style="flex:1;display:grid;gap:8px"><div class="card" style="margin:0;padding:10px"><p class="mut">Vs. Previous Day</p><b style="color:${p>=q?'var(--gr)':'var(--rd)'}">${p>=q?'↗':'↘'} ${delta(p,q)} ${p>=q?'better':'worse'}</b></div><div class="card" style="margin:0;padding:10px"><p class="mut">Active Streak</p><b>🔥 ${cs} day${cs==1?'':'s'}</b></div></div></div></div>
+<div class="card"><b class="sm">7-Day Completion History</b><div class="bars">${ks.map(k=>`<div class="bar"><span style="color:var(--or)">${op(k)}%</span><div style="height:${Math.max(4,op(k)*.8)}px;${op(k)?'':'opacity:.35'}"></div>${+k.slice(8)}</div>`).join('')}</div></div>
+<div class="card"><b class="sm">Habit Streaks by Goal</b><p class="mut">Current streak vs personal best</p>${S.goals.length?S.goals.map(g=>{const[c,m]=streaks(k=>gp(g,k));return`<div class="row sm" style="margin-top:10px">${g.emoji} <b>${esc(g.name)}</b><span class="sp"></span><span style="color:var(--or)">🔥 ${c}d</span><span style="color:var(--tl)">🏆 ${m}d</span></div>`}).join(''):'<p class="mut" style="margin-top:8px">Add a goal to start tracking streaks.</p>'}</div>
+<div class="card"><b class="sm">Goal Breakdown</b>${S.goals.map(g=>{const p=gp(g,T);return`<div style="margin-top:10px"><div class="row sm">${g.emoji} <b>${esc(g.name)}</b><span class="sp"></span><b style="color:var(--or)">${p}%</b></div><p class="mut">${g.tasks.filter(t=>t.log[T]).length} of ${g.tasks.length} tasks completed</p><div class="trk"><i style="width:${p}%"></i></div></div>`}).join('')||'<p class="mut" style="margin-top:8px">No goals yet.</p>'}</div>`}
+function pSet(){const s=S.set,L=Math.ceil((new Date(s.end+'T23:59:59')-Date.now())/864e5);
+const tg=(k,l,sub)=>`<div class="row" style="margin:10px 0"><div><b class="sm">${l}</b>${sub?`<p class="mut" style="font-size:10px">${sub}</p>`:''}</div><span class="sp"></span><button class="tog ${s[k]?'on':''}" onclick="A('set','${k}')" role="switch" aria-checked="${!!s[k]}" aria-label="${l}"></button></div>`;
+return head()+`<div class="card"><b class="sm" style="color:var(--or)">Appearance</b>${tg('dark','Dark Mode')}${tg('glass','✨ Liquid Glass (iPhone Style)','Frosted glassmorphism, specular highlights &amp; deep blur')}<p class="mut">Wallpaper</p><div class="wp" style="margin-top:6px">${[['none','None'],['aurora','Aurora'],['mountains','Mountains'],['minimal','Minimal'],['forest','Forest']].map(([k,n])=>`<div class="${s.wall==k?'on':''}" onclick="A('wall','${k}')"><span class="w-${k}" style="background-attachment:scroll;${k=='aurora'?'background-image:linear-gradient(160deg,#10b981,#1a1040)':k=='mountains'?'background-image:linear-gradient(#7c3aed,#ea580c)':k=='forest'?'background-image:linear-gradient(#0b0f17,#166534)':k=='minimal'?'background-image:radial-gradient(#fff3 1px,transparent 1px);background-size:8px 8px':''}"></span>${n}</div>`).join('')}<div class="${s.wall=='custom'?'on':''}" onclick="$('#wpf').click()"><span style="display:grid;place-items:center;font-size:14px">🖼</span>+ Add</div></div><input type="file" id="wpf" accept="image/*" hidden onchange="A('wpFile',this)"></div>
+<div class="card"><b class="sm" style="color:var(--or)">Goal Period Timer</b><div class="row" style="margin:10px 0"><div><b class="sm">Goal End Date</b><p class="mut" style="color:var(--or)">${Math.max(0,L)} days remaining</p></div><span class="sp"></span><input type="date" value="${s.end}" style="width:auto" onchange="A('end',this.value)"></div>${tg('cd','Countdown Active')}<p class="mut" style="text-align:center;margin:6px 0">Quick Presets</p><div class="pre" style="grid-template-columns:repeat(5,1fr)">${[7,14,30,60,90].map(n=>`<button onclick="A('preset',${n})">${n}d</button>`).join('')}</div></div>
+<div class="card"><b class="sm" style="color:var(--or)">About</b><div class="row sm" style="margin-top:10px"><b>BetterDay</b><span class="sp"></span><span class="mut">v1.0.0</span></div><div class="row sm" style="margin-top:8px">Auto-cross after 23 hours<span class="sp"></span><span class="chip" style="color:var(--gr);background:#22c55e22">ON</span></div></div>
+<div class="card"><b class="sm" style="color:var(--or)">Install On Phone (No App Store Needed)</b><div class="row" style="margin-top:10px"><div><b class="sm">Download / Install BD App</b><p class="mut">Works 100% offline without internet (Free &amp; Private)</p></div><span class="sp"></span><button class="btn" onclick="A('install')">INSTALL</button></div></div>
+<div class="card"><b class="sm" style="color:var(--rd)">Data Management</b><div class="row sm" style="margin-top:10px">Reset All Goals &amp; Data<span class="sp"></span><button class="btn" style="background:#ef444422;color:var(--rd)" onclick="A('reset')">Reset</button></div></div>`}
+function render(nv){const el=document.body;el.className=(S.set.dark?'':'light ')+(S.set.glass?'glass ':'')+(S.set.wall&&S.set.wall!='none'?'w-'+S.set.wall:'');
+if(S.set.wall=='custom'&&S.set.wallData)el.style.backgroundImage=`url(${S.set.wallData})`;else el.style.backgroundImage='';
+const ap=$('#app');ap.innerHTML={goals:pGoals,todo:pTodo,notes:pNotes,ins:pIns,set:pSet}[tab]();if(nv){ap.classList.remove('enter');void ap.offsetWidth;ap.classList.add('enter')}
+if(navTab!==tab){navTab=tab;$('#nav').innerHTML=[['goals','◎','Goals'],['todo','☑','To-Do'],['notes','▤','Notes'],['ins','▥','Insights'],['set','⚙','Settings']].map(([k,i,n])=>`<button class="${tab==k?'on':''}" onclick="A('tab','${k}')"><i>${i}</i>${n}</button>`).join('')}popId=null}
+function M(h,sheet){$('#mod').innerHTML=`<div class="ov ${sheet?'sheet':''}" onclick="if(event.target==this)A('close')"><div class="md" role="dialog">${h}</div></div>`}
+const X=()=>$('#mod').innerHTML='';
+function goalForm(){const em=['💪','📚','🌿','🎯','🏃','🧘','💧','🧠','⚡','🎨','💼','🛌'];M(`<div class="row"><h3 style="flex:1">Create New Goal</h3><button class="link" onclick="A('close')" aria-label="Close">✕</button></div><p class="lbl">Select Emoji Icon</p><div class="emo">${em.map(e=>`<button class="${e==gem?'on':''}" onclick="gem='${e}';document.querySelectorAll('.emo button').forEach(b=>b.classList.toggle('on',b.textContent=='${e}'))">${e}</button>`).join('')}</div><p class="lbl">Goal Name</p><input type="text" id="gn" placeholder="e.g. Evening Reading, Clean Diet..."><div class="row"><p class="lbl" style="flex:1">Daily Tasks / Habits</p><button class="link" onclick="addRow()">+ Add row</button></div><div id="rows"></div><div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn g" onclick="A('close')">Cancel</button><button class="btn" onclick="A('mkGoal')">Create Goal</button></div>`);addRow();addRow()}
+function addRow(){const d=document.createElement('div');d.className='row';d.style.marginBottom='8px';d.innerHTML=`<input type="text" class="tk" placeholder="Task ${document.querySelectorAll('.tk').length+1}"><button class="link" style="color:var(--mut)" onclick="this.parentNode.remove()" aria-label="Remove row">🗑</button>`;$('#rows').appendChild(d)}
+function todoForm(){const h=tdv.u=='h',mx=h?24:10,pr=h?[1,3,6,12,24]:[1,2,3,5,7,10],lb=n=>h?(n==24?'1d':n+'h'):n+'d';
+M(`<div class="row"><h3 style="flex:1">⏱ New Timed To-Do</h3><button class="link" onclick="A('close')" aria-label="Close">✕</button></div><p class="lbl">Task Name / Objective</p><input type="text" id="tn" value="${esc(tdv.name)}" oninput="tdv.name=this.value"><div class="row" style="margin:12px 0 6px"><p class="lbl" style="flex:1;margin:0">Choose Duration (Timer)</p><b class="sm" style="color:var(--or)">Total: ${h?tdv.n+' Hours':tdv.n+' Days'}</b></div><div class="seg"><button class="${h?'on':''}" onclick="tdv.u='h';tdv.n=Math.min(tdv.n,24);todoForm()">Hours (1 – 24h)</button><button class="${h?'':'on'}" onclick="tdv.u='d';tdv.n=Math.min(tdv.n,10);todoForm()">Days (1 – 10 Days)</button></div><div class="card" style="margin:12px 0"><div class="row"><span class="mut">Set ${h?'Hours':'Days'}:</span><span class="sp"></span><b style="font-size:20px;color:var(--or)">${tdv.n}</b></div><input type="range" min="1" max="${mx}" value="${tdv.n}" oninput="tdv.n=+this.value;todoForm()" aria-label="Duration"></div><p class="lbl">Or Quick Presets:</p><div class="pre">${pr.map(n=>`<button onclick="tdv.n=${n};todoForm()">${lb(n)}</button>`).join('')}</div><div class="row" style="justify-content:flex-end;margin-top:14px"><button class="btn g" onclick="A('close')">Cancel</button><button class="btn" onclick="A('mkTodo')">Add Task</button></div>`);
+const i=$('#tn');if(i&&document.activeElement!=i&&!tdv.n)i.focus()}
+function A(a,x,y){switch(a){
+case'tab':tab=x;open=null;go=true;break;case'open':open=x;go=true;break;case'back':open=null;go=true;break;
+case'dark':S.set.dark=!S.set.dark;break;
+case'close':X();return;
+case'newGoal':gem='🌿';goalForm();return;
+case'mkGoal':{const n=$('#gn').value.trim(),t=[...document.querySelectorAll('.tk')].map(i=>i.value.trim()).filter(Boolean);if(!n||!t.length){$('#gn').focus();return}S.goals.push({id:uid(),emoji:gem,name:n,tasks:t.map(v=>({id:uid(),name:v,log:{}}))});X();break}
+case'tick':{const g=S.goals.find(g=>g.id==x),t=g.tasks.find(t=>t.id==y),T=dk(new Date());t.log[T]=!t.log[T];popId=t.log[T]?t.id:null;if(t.log[T]&&gp(g,T)==100)confetti();break}
+case'addTask':M(`<h3>Add New Task</h3><p class="mut">Add a recurring daily habit to this goal</p><input type="text" id="nt" placeholder="e.g. 20min HIIT, Reading chapter..." style="margin:12px 0"><div class="row" style="justify-content:flex-end"><button class="btn g" onclick="A('close')">Cancel</button><button class="btn" onclick="A('mkTask')">Add Task</button></div>`);$('#nt').focus();return;
+case'mkTask':{const v=$('#nt').value.trim();if(!v)return;S.goals.find(g=>g.id==open).tasks.push({id:uid(),name:v,log:{}});X();break}
+case'rmTask':{const g=S.goals.find(g=>g.id==open);M(`<div class="row"><h3 style="flex:1">Remove Task</h3><button class="link" onclick="A('close')" aria-label="Close">✕</button></div><p class="mut" style="margin-bottom:10px">Select a task to remove from this goal</p>${g.tasks.map(t=>`<div class="card row" style="margin-bottom:8px"><b class="sm">${esc(t.name)}</b><span class="sp"></span><button class="link" style="color:var(--rd)" onclick="A('rm','${t.id}')">🗑</button></div>`).join('')||'<p class="mut">No tasks left.</p>'}`,1);return}
+case'rm':{const g=S.goals.find(g=>g.id==open);g.tasks=g.tasks.filter(t=>t.id!=x);X();break}
+case'delGoal':ask('Delete this goal?','This removes the goal and all of its history.','Delete','delGoalYes',x);return;
+case'delGoalYes':S.goals=S.goals.filter(g=>g.id!=x);X();toast('Goal deleted');break;
+case'newTodo':tdv={u:'h',n:4,name:''};todoForm();return;
+case'mkTodo':{const n=tdv.name.trim();if(!n){$('#tn').focus();return}S.todos.unshift({id:uid(),name:n,n:tdv.n,u:tdv.u,ms:tdv.n*(tdv.u=='h'?36e5:864e5),start:Date.now(),done:false});X();break}
+case'doneT':{const t=S.todos.find(t=>t.id==x);t.done=!t.done;if(t.done)confetti();break}
+case'delT':S.todos=S.todos.filter(t=>t.id!=x);break;
+case'flt':flt=x;break;
+case'newNote':nf='Reflection';M(`<div class="row"><h3 style="flex:1">📝 New Personal Note</h3><span class="mut">${fmtD(dk(new Date()))}</span></div><div class="seg" id="cats" style="margin:10px 0">${['Reflection','Win','Mindset','General'].map(c=>`<button class="${c==nf?'on':''}" onclick="nf='${c}';document.querySelectorAll('#cats button').forEach(b=>b.classList.toggle('on',b.textContent=='${c}'))">${c}</button>`).join('')}</div><input type="text" id="nti" placeholder="Note Title or Theme..." style="margin-bottom:8px"><textarea id="nb" placeholder="Write your personal thoughts, insights, or wins today..."></textarea><div class="row" style="justify-content:flex-end;margin-top:12px"><button class="btn g" onclick="A('close')">Cancel</button><button class="btn" onclick="A('mkNote')">Save Note</button></div>`);$('#nti').focus();return;
+case'mkNote':{const t=$('#nti').value.trim();if(!t){$('#nti').focus();return}S.notes.unshift({id:uid(),cat:nf,title:t,body:$('#nb').value,date:dk(new Date())});X();break}
+case'delN':S.notes=S.notes.filter(n=>n.id!=x);break;
+case'set':S.set[x]=!S.set[x];if(x=='cd'&&S.set.cd&&new Date(S.set.end+'T23:59:59')<Date.now())S.set.end=dk(off(30));break;
+case'cdToggle':S.set.cd=!S.set.cd;if(S.set.cd&&new Date(S.set.end+'T23:59:59')<Date.now())S.set.end=dk(off(30));break;
+case'wall':S.set.wall=x;break;
+case'wpFile':{const f=x.files[0];if(!f)return;const r=new FileReader;r.onload=()=>{S.set.wall='custom';S.set.wallData=r.result;save();render()};r.readAsDataURL(f);return}
+case'end':S.set.end=x;break;case'preset':S.set.end=dk(off(x));break;
+case'reset':ask('Reset all data?','This deletes every goal, task, note and setting on this device. It cannot be undone.','Reset everything','resetYes');return;
+case'resetYes':S=fresh();open=null;tab='goals';go=true;X();toast('All data reset');break;
+case'install':if(window._ip){window._ip.prompt();window._ip=null}else M(`<div class="row"><h3 style="flex:1">Install BetterDay</h3><button class="link" onclick="A('close')" aria-label="Close">✕</button></div><p class="sm" style="line-height:1.6">1. Open the browser menu <b>⋮</b> (Chrome) or Share (Safari).<br>2. Tap <b>Add to Home screen</b> / <b>Install app</b>.<br>3. Tap <b>Add</b>. The BD icon now opens the app full-screen.</p><p class="mut" style="margin-top:10px">All data stays on your phone. No account needed.</p>`);return}
+save();render(go);go=false}
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window._ip=e});
+setInterval(()=>{if(tab=='todo')S.todos.forEach(t=>{const c=document.querySelector('[data-chip="'+t.id+'"]'),b=document.querySelector('[data-bar="'+t.id+'"]');if(c&&!t.done)c.textContent=fmtR(rem(t));if(b)b.style.width=Math.max(0,Math.min(100,rem(t)/t.ms*100))+'%'});const c=$('#cdv');if(c&&S.set.cd)c.textContent=cdText()},1000);
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+render();
+</script></body></html>
